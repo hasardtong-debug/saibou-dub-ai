@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAIBOU DUB AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:white;font-family:Arial,sans-serif}
+header{padding:22px;background:#111a30;border-bottom:1px solid #26334e}
+.logo{font-size:25px;font-weight:bold;color:#54b6ff}
+.logo span{color:#fff}
+header p{color:#aab7ce;font-size:13px}
+main{max-width:650px;margin:25px auto;padding:16px}
+.card{background:#141f36;border:1px solid #293956;border-radius:17px;padding:20px;margin-bottom:18px}
+h2{font-size:21px}
+p{color:#b5c2d8;line-height:1.5}
+label{display:block;margin:16px 0 8px}
+input,select{width:100%;padding:14px;border-radius:10px;border:1px solid #40516e;background:#0b1427;color:white;font-size:15px}
+.upload{border:2px dashed #438fe7;text-align:center;padding:28px 12px;border-radius:14px}
+button{width:100%;padding:15px;background:#287ce8;color:white;border:0;border-radius:11px;font-size:16px;font-weight:bold;margin-top:16px}
+button:disabled{opacity:.5}
+video{width:100%;margin-top:15px;border-radius:12px}
+.small{text-align:center;font-size:12px;color:#8293ae}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">SAIBOU <span>DUB AI</span></div>
+<p>La traduction vidéo par intelligence artificielle</p>
+</header>
+
+<main>
+<div class="card">
+<h2>🎬 Doublage vidéo IA</h2>
+<p>Importe ta vidéo et prépare sa traduction dans la langue de ton choix.</p>
+
+<div class="upload">
+<p>📁 Choisis ta vidéo</p>
+<input type="file" id="videoFile" accept="video/*">
+</div>
+<video id="preview" controls hidden></video>
+
+<label>Langue originale</label>
+<select id="source">
+<option value="auto">Détection automatique</option>
+<option value="fr">Français</option>
+<option value="en">Anglais</option>
+<option value="es">Espagnol</option>
+<option value="pt">Portugais</option>
+</select>
+
+<label>Traduire vers</label>
+<select id="target">
+<option value="fr">Français</option>
+<option value="en">Anglais</option>
+<option value="es">Espagnol</option>
+<option value="pt">Portugais</option>
+<option value="de">Allemand</option>
+<option value="it">Italien</option>
+</select>
+
+<label>Type de voix</label>
+<select id="voice">
+<option>Conserver la voix originale</option>
+<option>Voix masculine IA</option>
+<option>Voix féminine IA</option>
+<option>Choisir une voix IA</option>
+</select>
+
+<button id="dub" disabled>🚀 Préparer mon doublage</button>
+<p id="status" class="small">En attente d'une vidéo.</p>
+</div>
+
+<div class="card">
+<h2>✨ SAIBOU DUB AI</h2>
+<p>Traduction automatique • Voix IA • Doublage multilingue</p>
+<p class="small">Version 1.0 — Interface de démonstration</p>
+</div>
+</main>
+
+<script>
+const file=document.getElementById('videoFile');
+const preview=document.getElementById('preview');
+const dub=document.getElementById('dub');
+const status=document.getElementById('status');
+
+file.addEventListener('change',()=>{
+if(file.files.length){
+preview.src=URL.createObjectURL(file.files[0]);
+preview.hidden=false;
+dub.disabled=false;
+status.textContent="Vidéo chargée : "+file.files[0].name;
+}
+});
+
+dub.addEventListener('click',()=>{
+status.textContent="Interface prête. Le moteur de doublage IA sera connecté à la prochaine étape.";
+});
+</script>
+</body>
+                                                   </html>
+                                                   
